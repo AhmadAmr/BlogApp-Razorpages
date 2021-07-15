@@ -41,7 +41,7 @@
                     <div class="col-lg-4 col-md-12 mb-4">
                         <div class="card">
                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="~/img/@article.Image" class="img-fluid" />
+                                <img src="~/img/@article.Image" class="img-fluid" height="400" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                 </a>
@@ -52,7 +52,7 @@
                                     Some quick example text to build on the card title and make up the bulk of the
                                     card's content.@article.Author.FirstName
                                 </p>
-                                <a asp-page="/Blog/Details" asp-route-id="@article.Id" class="btn btn-primary">Read</a>
+                                <a asp-page="/Detail" asp-route-id="@article.Id" class="btn btn-primary">Read</a>
                             </div>
                         </div>
                     </div>

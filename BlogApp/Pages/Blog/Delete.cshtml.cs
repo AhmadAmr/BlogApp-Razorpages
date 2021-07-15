@@ -49,6 +49,7 @@ namespace BlogApp
 
             if (Blog != null)
             {
+                
                 _context.Blogs.Remove(Blog);
                 await _context.SaveChangesAsync();
             }

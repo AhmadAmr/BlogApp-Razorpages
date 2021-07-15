@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kacAGFKF+3qzZOfXGur9DlK6UgqI10K4KeffMwQTuANyFZ3Ww01mFSYK6rPqgc839K1bVAmSc9AJBgZgiaZl5Q==",
+  "dgSpecHash": "945aF6Jom3v1jkqOLZq92kzg5hw4ryEHKuNwRCykCMPSHwIT+kmMcK0w9WUg4HZvkHCHjIAN571eaEbj9Xe0vg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Home\\source\\repos\\BlogApp\\BlogApp\\BlogApp.csproj",
+  "projectFilePath": "C:\\Users\\Home\\Desktop\\BlogApp-Razorpages\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Home\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Home\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",

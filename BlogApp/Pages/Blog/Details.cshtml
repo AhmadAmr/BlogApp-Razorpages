@@ -41,7 +41,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Blog.Draft)
         </dd>
-       
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Blog.Image)
         </dt>
@@ -50,7 +50,40 @@
         </dd>
     </dl>
 </div>
+@if (Model.Blog.Status != BlogStatus.Approved)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+    User, Model.Blog, Operations.Approve)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Blog.Id" />
+            <input type="hidden" name="status" value="@BlogStatus.Approved" />
+            <button type="submit" class="btn btn-xs btn-success">Approve</button>
+        </form>
+    }
+}
+
+@if (Model.Blog.Status != BlogStatus.Rejected)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+    User, Model.Blog, Operations.Reject)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.Blog.Id" />
+            <input type="hidden" name="status" value="@BlogStatus.Rejected" />
+            <button type="submit" class="btn btn-xs btn-danger">Reject</button>
+        </form>
+    }
+}
+
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Blog.Id">Edit</a> |
+    @if ((await AuthorizationService.AuthorizeAsync(
+        User, Model.Blog,
+        Operations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Blog.Id">Edit</a>
+        <text> | </text>
+    }
     <a asp-page="./Index">Back to List</a>
 </div>
+

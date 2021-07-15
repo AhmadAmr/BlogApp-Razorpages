@@ -11,6 +11,7 @@ using BlogApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using BlogApp.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace BlogApp
 {
@@ -29,7 +30,9 @@ namespace BlogApp
 
         [BindProperty]
         public Blog Blog { get; set; }
-        
+
+        [BindProperty]
+        public IFormFile photo { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

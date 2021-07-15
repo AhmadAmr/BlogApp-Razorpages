@@ -9,6 +9,7 @@ using BlogApp.Models;
 using BlogApp.Data;
 using BlogApp.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Pages
 {
@@ -18,19 +19,21 @@ namespace BlogApp.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly BlogService _service;
+        private readonly ApplicationDbContext _contex;
 
-        public IndexModel(ILogger<IndexModel> logger,BlogService service)
+        public IndexModel(ILogger<IndexModel> logger,BlogService service ,ApplicationDbContext context)
         {
             _logger = logger;
             _service = service;
-            
+            _contex = context;
         }
 
         public IList<BlogApp.Models.Blog> Blog { get; private set; }
 
         public async Task OnGetAsync()
         {
-            Blog = await _service.GetBlogs();
+            var  blog =   _contex.Blogs.Where(x => x.Published && x.Status == BlogStatus.Approved);
+            Blog = await blog.ToListAsync();
         }
     }
 }
