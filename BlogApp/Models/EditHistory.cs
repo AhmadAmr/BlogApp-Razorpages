@@ -10,7 +10,9 @@ namespace BlogApp.Models
         public int Id { get; set; }
         [DataType(DataType.Date)]
         public DateTime UpdatedOn { get; set; }
-
         public virtual ApplicationUser user { get; set; }
+        //navigation
+        public int BlogId { get; set; }
+        public virtual Blog blog { get; set; }
     }
 }
